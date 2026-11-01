@@ -1,3 +1,26 @@
+OBS Studio iLeech Exit — unofficial fork
+=======================================
+
+This independently maintained fork of OBS Studio 33.0.1 restores the **Exit**
+button below **Settings** in the Controls dock and adds an optional
+**General → System Tray** setting to hide OBS in the tray when its window
+is closed. Explicit Exit actions retain OBS's normal shutdown confirmations.
+The option is disabled by default and requires an available, enabled tray icon.
+
+`Download the Windows x64 build <https://github.com/Mike-iLeech/obs-studio/releases/latest>`_.
+
+This is not an official OBS Project release. The changes were developed with
+OpenAI Codex assistance. The upstream proposal was declined; this fork is
+published independently under the existing GPL license.
+
+The Windows build does not include the OBS Project's private OAuth client
+credentials; built-in sign-in to streaming services may be unavailable.
+It contains no personal profiles or scene collections. Back up your OBS
+configuration before testing and use a separate portable installation.
+
+Upstream project information
+----------------------------
+
 OBS Studio <https://obsproject.com>
 ===================================
 
