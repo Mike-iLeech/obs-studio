@@ -1,0 +1,31 @@
+name: Test Exit Windows x64
+on:
+  push:
+    branches: [ci/exit-button-test]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Build OBS with Exit changes
+        uses: ./.github/actions/build-obs
+        with:
+          target: x64
+          config: RelWithDebInfo
+      - name: Package portable test build
+        uses: ./.github/actions/package-obs
+        with:
+          target: x64
+          config: RelWithDebInfo
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: obs-33.0.1-exit-test-windows-x64
+          path: build_x64/obs-studio-*-windows-x64.zip
+          if-no-files-found: error
+          retention-days: 14
